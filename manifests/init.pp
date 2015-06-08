@@ -5,15 +5,12 @@
 #   include git
 class git (
   $package                 = $git::package,
-  $version                 = $git::version,
   $configdir               = $git::configdir,
   $credentialhelper        = $git::credentialhelper,
   $global_credentialhelper = $git::global_credentialhelper,
   $global_excludesfile     = $git::global_excludesfile,
 ) {
-  package { $package:
-    ensure => $version
-  }
+  package { $package: }
 
   file { $configdir:
     ensure => directory
