@@ -11,22 +11,8 @@ class git (
   $global_credentialhelper = $git::global_credentialhelper,
   $global_excludesfile     = $git::global_excludesfile,
 ) {
-  if $::osfamily == 'Darwin' {
-    include boxen::config
-    include homebrew
-
-    homebrew::formula { 'git':
-      before => Package[$package]
-    }
-
-    package { $package:
-      ensure   => $version,
-      provider => homebrew
-    }
-  } else {
-    package { $package:
-      ensure => $version
-    }
+  package { $package:
+    ensure => $version
   }
 
   file { $configdir:
