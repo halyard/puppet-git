@@ -1,10 +1,34 @@
-# Git Puppet Module for Boxen
+puppet-hostname
+===========
 
-[![Build Status](https://travis-ci.org/boxen/puppet-git.svg)](https://travis-ci.org/boxen/puppet-git)
+[![MIT Licensed](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://tldrlegal.com/license/mit-license)
+[![Build Status](https://img.shields.io/circleci/project/halyard/puppet-git.svg)](https://circleci.com/gh/halyard/puppet-git)
 
-Install [Git](http://git-scm.com), a stupid content tracker.
+Install and configure git
+
+## Changes from upstream
+
+* Remove unused meta scripts
+* Set up CircleCI tests
+* Switch from puppet-module-data to function bindings
+* Simplify package declaration
 
 ## Usage
+
+In hiera:
+
+```yaml
+---
+git::configdir: "%{::boxen::config::configdir}/git"
+
+git::package: 'boxen/brews/git'
+
+git::credentialhelper: "%{::boxen::config::repodir}/script/boxen-git-credential"
+git::global_credentialhelper: "%{boxen::config::home}/bin/boxen-git-credential"
+git::global_excludesfile: "%{hiera('git::configdir')}/gitignore"
+```
+
+In your manifest:
 
 ```puppet
 include git
@@ -23,36 +47,6 @@ git::config::global { 'user.email':
 
 ## Required Puppet Modules
 
-* `boxen`
-* `homebrew`
-* `ini_setting`
+* [boxen](https://github.com/halyard/puppet-boxen)
+* [homebrew](https://github.com/halyard/puppet-homebrew)
 
-## Development
-
-Write code. Run `script/cibuild` to test it. Check the `script`
-directory for other useful tools.
-
-## Hiera configuration
-
-The following variables may be automatically overridden with Hiera:
-
-```yaml
----
-git::configdir: "%{::boxen::config::configdir}/git"
-
-git::package: 'boxen/brews/git'
-git::version: '1.8.4-boxen2'
-
-git::credentialhelper: "%{::boxen::config::repodir}/script/boxen-git-credential"
-git::global_credentialhelper: "%{boxen::config::home}/bin/boxen-git-credential"
-git::global_excludesfile: "%{hiera('git::configdir')}/gitignore"
-```
-
-It is **required** that you include
-[ripienaar/puppet-module-data](https://github.com/ripienaar/puppet-module-data)
-in your boxen project, as this module now ships with many pre-defined configurations
-in the `data/` directory. With this module included, those
-definitions will be automatically loaded, but can be overridden easily in your
-own hierarchy.
-
-You can also use JSON if your Hiera is configured for that.
