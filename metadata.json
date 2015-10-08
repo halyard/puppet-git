@@ -1,6 +1,6 @@
 {
   "name": "halyard-git",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "author": "Les Aker",
   "license": "MIT",
   "summary": "Configure git via Boxen",
