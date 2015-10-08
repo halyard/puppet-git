@@ -1,5 +1,5 @@
-module Puppet::Parser::Functions
-  newfunction(:'git::data', :type => :rvalue) do
+Puppet::Functions.create_function(:'git::data') do
+  def data
     configdir = closure_scope.lookupvar('::boxen::config::configdir')
     repodir = closure_scope.lookupvar('::boxen::config::repodir')
     homedir = closure_scope.lookupvar('::boxen::config::home')
