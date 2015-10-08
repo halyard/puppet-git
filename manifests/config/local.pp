@@ -1,6 +1,7 @@
 # Public: Set a git configuration option for a specific repository.
 #
-# namevar - Will be used as the String path to the git repository if repo is not defined.
+# namevar - Will be used as the String path to the git repository if repo is
+#             not defined.
 # key     - The String name of the configuration option.
 # value   - The String value of the configuration option.
 # repo    - The String path to the git repository.
