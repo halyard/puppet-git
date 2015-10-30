@@ -2,6 +2,7 @@ puppet-hostname
 ===========
 
 [![Puppet Forge](https://img.shields.io/puppetforge/v/halyard/git.svg)](https://forge.puppetlabs.com/halyard/git)
+[![Dependency Status](https://img.shields.io/gemnasium/halyard/puppet-hostname.svg)](https://gemnasium.com/halyard/puppet-hostname)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
 [![Build Status](https://img.shields.io/circleci/project/halyard/puppet-git.svg)](https://circleci.com/gh/halyard/puppet-git)
 
