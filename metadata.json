@@ -9,8 +9,8 @@
   "issues_url": "https://github.com/halyard/puppet-git/issues",
   "dependencies": [
     {
-      "name": "puppetlabs-inifile",
-      "version_requirement": ">= 1.4.0 < 2.0.0"
+      "name": "halyard/inifile",
+      "version_requirement": "1.4.x"
     }
   ],
   "operatingsystem_support": [
