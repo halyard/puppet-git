@@ -8,10 +8,6 @@
   "project_page": "https://github.com/halyard/puppet-git",
   "issues_url": "https://github.com/halyard/puppet-git/issues",
   "dependencies": [
-    {
-      "name": "halyard/inifile",
-      "version_requirement": "1.4.x"
-    }
   ],
   "operatingsystem_support": [
     {
